@@ -35,26 +35,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+
+
 app.get("/", (req, res) => {
-  console.log(`Id = ${req.session.id} and Logged in is ${req.session.loggedIn}`)
-  res.render("index")
+  // console.log(`Id = ${req.session.id} and Logged in is ${req.session.loggedIn}`)
+  
+  res.render("index", {loggedIn: req.session.loggedIn})
 })
 
 app.get("/login", (req, res) => {
-  res.render("login")
+  res.render("login",{ loggedIn: req.session.loggedIn})
 })
 
 app.get("/signup", (req, res) => {
-  res.render("signup")
+  res.render("signup", { loggedIn: req.session.loggedIn})
 })
 
 app.get("/logout", (req, res) => {
-  res.render("logout")
+  req.session.id = null;
+  req.session.loggedIn = false;
+  // res.redirect("/")
+   res.render("logout", { loggedIn: req.session.loggedIn})
 })
 
 app.get("/dashboard", (req, res) => {
-  res.render("dashboard")
+  res.render("dashboard", { loggedIn: req.session.loggedIn})
 })
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

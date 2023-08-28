@@ -27,7 +27,7 @@
 
             <button class="nav-link border border-0 bg-transparent" id="logout">Logout</button>
             {{else}}
-            <a class="nav-link" href="/login/">Log In
+            <a class="nav-link" href="/login/">Login
 
               <span class="visually-hidden">(current)</span>
             </a>
@@ -43,33 +43,38 @@
           {{!-- <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
           </li> --}}
-            <li class="nav-item">
+          {{#if loggedIn}}
+          <li class="nav-item">
+          </li>
+          {{else}}
+          <li class="nav-item">
             <a class="nav-link" href="/signup">Sign Up</a>
           </li>
+          {{/if}}
         </ul>
 
       </div>
     </div>
   </nav>
- 
-        {{!-- <div class="dropdown pb-4">
-          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-          --}}
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    {{{body}}}
+
+  {{!-- <div class="dropdown pb-4">
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+      --}}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="#">Sign out</a></li>
+    </ul>
+  </div>
+  </div>
+  </div>
+  {{{body}}}
   </div>
 
   <script src="/js/logout.js"></script>
