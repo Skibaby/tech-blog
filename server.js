@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 app.get("/", (req, res) => {
+  console.log(`Id = ${req.session.id} and Logged in is ${req.session.loggedIn}`)
   res.render("index")
 })
 
