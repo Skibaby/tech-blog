@@ -51,12 +51,6 @@ app.get("/signup", (req, res) => {
   res.render("signup", { loggedIn: req.session.loggedIn})
 })
 
-app.get("/logout", (req, res) => {
-  req.session.id = null;
-  req.session.loggedIn = false;
-  // res.redirect("/")
-   res.render("logout", { loggedIn: req.session.loggedIn})
-})
 
 app.get("/dashboard", (req, res) => {
   res.render("dashboard", { loggedIn: req.session.loggedIn})

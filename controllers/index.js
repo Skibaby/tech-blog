@@ -4,7 +4,7 @@ const userRoutes = require("./api/user-routes")
 const router = express.Router();
 
 
-router.use("/api/userroutes", userRoutes )
+router.use("/api/users", userRoutes )
 
 
 
