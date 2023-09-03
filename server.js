@@ -51,12 +51,25 @@ app.get("/signup", (req, res) => {
   res.render("signup", { loggedIn: req.session.loggedIn})
 })
 
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    } else {
+      res.redirect('/');
+    }
+  });
+})
 
 app.get("/dashboard", (req, res) => {
   res.render("dashboard", { loggedIn: req.session.loggedIn})
 })
 
+app.get("/blog", (req, res) => {
+  res.render("blogpost", { loggedIn: req.session.loggedIn})
+})
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+

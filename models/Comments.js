@@ -17,7 +17,7 @@ Comments.init(
         autoIncrement: true,
       },
       contents: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT('medium'),
         allowNull: false,
       },
       userId: {

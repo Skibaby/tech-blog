@@ -19,7 +19,7 @@ Blog.init(
       allowNull: false,
     },
     contents: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
     userId: {
